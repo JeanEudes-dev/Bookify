@@ -1,28 +1,32 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import { FaHome, FaBook, FaSearch } from "react-icons/fa";
 
 const Navbar: React.FC = () => {
+    const navigate = useNavigate()
+
     return (
-        <nav className="navbar navbar-expand-lg navbar-light bg-light">
-            <div className="container">
-                <a className="navbar-brand" href="/">Bookify</a>
-                <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span className="navbar-toggler-icon"></span>
-                </button>
-                <div className="collapse navbar-collapse" id="navbarNav">
-                    <ul className="navbar-nav ml-auto">
-                        <li className="nav-item active">
-                            <a className="nav-link" href="/">Home <span className="sr-only">(current)</span></a>
-                        </li>
-                        <li className="nav-item">
-                            <a className="nav-link" href="/books">Books</a>
-                        </li>
-                        <li className="nav-item">
-                            <a className="nav-link" href="/profile">Profile</a>
-                        </li>
-                    </ul>
+        <div>
+            <div className='brand'><h1>BOOKIFY</h1></div>
+            <nav className="navbar navbar-expand sticky-top">
+                <div className="container">
+
+                    <div className={`navbar-collapse`}>
+                        <ul className="navbar-nav ml-auto ">
+                            <li className="nav-item" title='Home'>
+                                <span className="nav-link" onClick={() => navigate('/')}><FaHome className='nav-icon' /> </span>
+                            </li>
+                            <li className="nav-item" title='Explore Topics'>
+                                <span className="nav-link" onClick={() => navigate('/explore')} ><FaBook className='nav-icon' /> </span>
+                            </li>
+                            <li className="nav-item" title='Find a Book'>
+                                <span className="nav-link" onClick={() => navigate('/search')}><FaSearch className='nav-icon' /> </span>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
-        </nav>
+            </nav>
+        </div>
     );
 };
 

@@ -1,6 +1,7 @@
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
+
 
 interface Book {
     id: string;
@@ -11,29 +12,29 @@ interface Book {
     url: string;
 }
 
-const HomePage: React.FC = () => {
+
+const TopicPage: React.FC = () => {
     const [books, setBooks] = useState<Book[]>([]);
+    const { subject } = useParams<{ subject: string }>();
     const navigate = useNavigate()
 
     useEffect(() => {
-        const fetchBooks = async () => {
+        const fetchBooksBySubject = async () => {
             try {
-                const response = await axios.get('https://www.dbooks.org/api/recent');
+                const response = await axios.get(`https://www.dbooks.org/api/search/${subject}`);
                 setBooks(response.data.books);
-                console.log(response.data)
             } catch (error) {
-                console.error('Error fetching books:', error);
-                setBooks([]);
+                console.error('Error fetching books by subject:', error);
             }
         };
 
-        fetchBooks();
-    }, []);
+        fetchBooksBySubject();
+    }, [subject]);
 
     return (
         <div className="container mt-4">
-            <h1>Welcome to Bookify! <br/> FREE DOWNLOAD OPEN BOOKS</h1>
-            <div className="card-container">
+            <h2>Books on {subject}</h2>
+            <div className="card-container mt-4">
                 {books.map((book) => (
                     <div className="book" onClick={() => navigate(`/book/${book.id}`)} key={book.id}>
                         <div className='book-details'>
@@ -51,4 +52,4 @@ const HomePage: React.FC = () => {
     );
 };
 
-export default HomePage;
+export default TopicPage;

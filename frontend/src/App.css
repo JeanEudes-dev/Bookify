@@ -1,38 +1,320 @@
-.App {
-  text-align: center;
+body {
+  background-color: #fdf2e5 !important;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.book {
+  position: relative;
+  border-radius: 10px;
+  width: 220px;
+  height: 300px;
+  background-color: rgba(158, 176, 255, 0.207);
+  -webkit-box-shadow: 1px 1px 3px #464646;
+  box-shadow: 1px 1px 3px #464646;
+  -webkit-transform: preserve-3d;
+  -ms-transform: preserve-3d;
+  transform: preserve-3d;
+  -webkit-perspective: 2000px;
+  perspective: 2000px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  margin: 20px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.cover {
+  top: 0;
+  position: absolute;
+  background-color: rgb(255, 208, 179);
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  cursor: pointer;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  -webkit-transform-origin: 0;
+  -ms-transform-origin: 0;
+  transform-origin: 0;
+  -webkit-box-shadow: 1px 1px 3px #464646;
+  box-shadow: 1px 1px 3px #464646;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  overflow: hidden;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.book:hover .cover {
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  -webkit-transform: rotatey(-80deg);
+  -ms-transform: rotatey(-80deg);
+  transform: rotatey(-80deg);
+}
+
+p {
+  font-size: 20px;
+  font-weight: bolder;
+}
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.cover-image {
+  width: 100%;
+}
+
+.book-details {
+  font-weight: lighter;
+  margin-left: 25pt;
+  height: 300px;
+  overflow-y: auto;
+  padding: 10px;
+}
+
+.book-details h3 {
+  font-size: 16pt !important;
+  color: rgb(123, 45, 0);
+}
+
+.image {
+  border: 1px solid orangered;
+  border-radius: 10px;
+}
+
+.main {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  gap: 0.5em;
 }
 
-.App-link {
-  color: #61dafb;
+.up {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5em;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.down {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5em;
+}
+
+.card1 {
+  width: 90px;
+  height: 90px;
+  outline: none;
+  border: none;
+  background: white;
+  border-radius: 90px 5px 5px 5px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  transition: 0.2s ease-in-out;
+}
+
+.instagram {
+  margin-top: 1.5em;
+  margin-left: 1.2em;
+  fill: #cc39a4;
+  mix-blend-mode: normal;
+}
+
+.card2 {
+  width: 90px;
+  height: 90px;
+  outline: none;
+  border: none;
+  background: white;
+  border-radius: 5px 90px 5px 5px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  transition: 0.2s ease-in-out;
+}
+
+.twitter {
+  margin-top: 1.5em;
+  margin-left: -0.9em;
+  fill: #03a9f4;
+}
+
+.card3 {
+  width: 90px;
+  height: 90px;
+  outline: none;
+  border: none;
+  background: white;
+  border-radius: 5px 5px 5px 90px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  transition: 0.2s ease-in-out;
+}
+
+.github {
+  margin-top: -0.6em;
+  margin-left: 1.2em;
+}
+
+.card4 {
+  width: 90px;
+  height: 90px;
+  outline: none;
+  border: none;
+  background: white;
+  border-radius: 5px 5px 90px 5px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  transition: 0.2s ease-in-out;
+}
+
+.discord {
+  margin-top: -0.9em;
+  margin-left: -1.2em;
+  fill: #8c9eff;
+}
+
+.card1:hover {
+  cursor: pointer;
+  scale: 1.1;
+  background-color: #cc39a4;
+}
+
+.card1:hover .instagram {
+  fill: white;
+}
+
+.card2:hover {
+  cursor: pointer;
+  scale: 1.1;
+  background-color: #03a9f4;
+}
+
+.card2:hover .twitter {
+  fill: white;
+}
+
+.card3:hover {
+  cursor: pointer;
+  scale: 1.1;
+  background-color: black;
+}
+
+.card3:hover .github {
+  fill: white;
+}
+
+.card4:hover {
+  cursor: pointer;
+  scale: 1.1;
+  background-color: #8c9eff;
+}
+
+.card4:hover .discord {
+  fill: white;
+}
+
+.center {
+  margin-left: 40% !important;
+}
+
+.btn {
+  display: grid;
+  place-items: center;
+  background: #d59f95;
+  padding: 1.4em;
+  border-radius: 10px;
+  box-shadow: 6px 6px 10px -1px rgba(0, 0, 0, 0.15),
+    -6px -6px 10px -1px rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(0, 0, 0, 0);
+  cursor: pointer;
+  transition: transform 0.5s;
+  font-size: 16pt !important;
+  margin: 20px;
+}
+
+.btn:hover {
+  box-shadow: inset 4px 4px 6px -1px rgba(0, 0, 0, 0.2),
+    inset -4px -4px 6px -1px rgba(255, 255, 255, 0.7),
+    -0.5px -0.5px 0px rgba(255, 255, 255, 1),
+    0.5px 0.5px 0px rgba(0, 0, 0, 0.15), 0px 12px 10px -10px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  transform: translateY(0.05em);
+  transition: transform 0.5s;
+}
+
+.read {
+  background-color: #03a8f4a1 !important;
+}
+
+.input {
+  border: 1px solid orangered !important;
+  border-radius: 10px !important;
+}
+
+.nav-link {
+  cursor: pointer;
+}
+
+.ereader {
+  border: 1px solid orangered;
+  height: 850px;
+  border-radius: 6px;
+}
+
+.full-screen-viewer {
+  width: 100vw !important;
+  height: 100vh !important;
+}
+
+.navbar {
+  background-color: rgb(1, 42, 68) !important;
+  width: 300px;
+  margin: 10px auto;
+  border-radius: 8px !important;
+}
+
+.nav-item .nav-link {
+  color: #fff !important;
+}
+
+.nav-item {
+  border-radius: 8px;
+  margin: 0 25px !important;
+}
+
+.nav-item:hover {
+  background-color: #03a8f4a1 !important;
+}
+
+.brand {
+  font-size: 20pt;
+  position: absolute;
+  top: 5;
+  left: 5;
+  font-family: fantasy;
+  letter-spacing: 1pt;
+  color: rgb(1, 42, 68);
+}
+
+.nav-icon {
+  font-size: 16pt;
+}
+
+.card-header {
+  background-color: rgb(1, 42, 68) !important;
+}
+
+.card-header .active {
+  color: rgb(1, 42, 68) !important;
 }
