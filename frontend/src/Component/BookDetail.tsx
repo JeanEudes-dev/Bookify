@@ -3,6 +3,10 @@ import axios from 'axios';
 import { useNavigate, useParams } from 'react-router-dom';
 import Share from './Share';
 import EReader from './E-Reader';
+import Loader from './Loader';
+import { FaDownload } from "react-icons/fa6";
+import { FaBookReader } from "react-icons/fa";
+import { BsArrowsFullscreen } from "react-icons/bs";
 
 interface Book {
     title: string;
@@ -29,9 +33,9 @@ const BookDetail: React.FC = () => {
                 const formattedId = id?.endsWith('X') ? id.slice(0, -1) : id;
                 const response = await axios.get(`https://www.dbooks.org/api/book/${formattedId}`);
                 setBook(response.data);
-                console.log(response.data)
+                // console.log(response.data)
             } catch (error) {
-                console.error('Error fetching book details:', error);
+                // console.error('Error fetching book details:', error);
             }
         };
 
@@ -59,7 +63,7 @@ const BookDetail: React.FC = () => {
     }
 
     if (!book) {
-        return <div>Loading...</div>;
+        return <Loader />;
     }
 
     return (
@@ -123,11 +127,11 @@ const BookDetail: React.FC = () => {
                         </div>
                     </div>
                     <div className='center'>
-                        <button type='button' className="btn mt-4" onClick={handleDownload}>
-                            Download
+                        <button title='Download' type='button' className="btn mt-4" onClick={handleDownload}>
+                            <FaDownload />
                         </button>
-                        <button type='button' className="btn read mt-4" onClick={handleRead}>
-                            {!read ? 'Read' : 'Fullscreen'}
+                        <button title={!read ? 'Read' : 'Fullscreen'} type='button' className="btn read mt-4" onClick={handleRead}>
+                            {!read ? <FaBookReader /> : <BsArrowsFullscreen />}
                         </button>
                     </div>
                     {read && <EReader pdfUrl={book.download} />}
