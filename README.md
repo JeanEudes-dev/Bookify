@@ -1,6 +1,7 @@
 ## Bookify: Your Online Reading Oasis
 
 Bookify is an online platform designed to be your one-stop shop for all things bookish. Explore a vast library of books curated from various sources, including the dBooks.org open-source library, receive personalized recommendations based on your interests, and enjoy a seamless reading experience, all within a user-friendly interface.
+
 You can visit this link to see a preview of the web-app https://jeaneudes-dev.github.io/Bookify/
 
 **Features:**
