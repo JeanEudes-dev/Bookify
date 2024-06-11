@@ -8,6 +8,7 @@ import SearchBooks from './Component/Search';
 import Explore from './Component/Explore';
 import TopicPage from './Component/TopicPage';
 import Read from './Component/Read';
+import BookifyAI from './Component/BookifyAi';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/book/:id" element={<BookDetail />} />
+        <Route path="/bookify-ai/:id" element={<BookifyAI />} />
         <Route path="/search" element={<SearchBooks />} />
         <Route path="/explore" element={<Explore />} />
         <Route path="/reader" element={<Read />} />

@@ -66,6 +66,12 @@ const BookDetail: React.FC = () => {
         return <Loader />;
     }
 
+    const handleAiClick = () => {
+        const url = book ? book.download : '';
+        localStorage.setItem('pdfurl', url)
+        navigate(`/bookify-ai/${id}`)
+    }
+
     return (
         <div className="container mt-5">
             <h2 className="card-title">{book.title}</h2>
@@ -132,6 +138,9 @@ const BookDetail: React.FC = () => {
                         </button>
                         <button title={!read ? 'Read' : 'Fullscreen'} type='button' className="btn read mt-4" onClick={handleRead}>
                             {!read ? <FaBookReader /> : <BsArrowsFullscreen />}
+                        </button>
+                        <button title='Read loud or summarise using Bookify ai' type='button' className="btn mt-4" onClick={handleAiClick}>
+                            Bookify Ai
                         </button>
                     </div>
                     {read && <EReader pdfUrl={book.download} />}
