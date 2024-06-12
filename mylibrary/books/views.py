@@ -28,7 +28,7 @@ class SummarizeBookView(View):
             text += page.get_text() # type: ignore
 
         inputs = self.tokenizer(text, return_tensors="pt", max_length=1024, truncation=True)
-        summary_ids = self.model.generate(inputs.input_ids, max_length=200, min_length=50, length_penalty=2.0, num_beams=4, early_stopping=True) # type: ignore
+        summary_ids = self.model.generate(inputs.input_ids, max_length=300, min_length=100, length_penalty=2.0, num_beams=4, early_stopping=True) # type: ignore
         summary = self.tokenizer.decode(summary_ids[0], skip_special_tokens=True)
 
         return JsonResponse({"summary": summary})
